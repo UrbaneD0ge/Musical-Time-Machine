@@ -4,10 +4,12 @@ $( function() {
 } );
 
 //Form Handler
+var qDate;
+
 $(function() {
     $('#dateSubmit').on('submit', function(e) {
         e.preventDefault();
-        var qDate = $('datePicker :input');
-        console.log(qDate.val());
+        qDate = $('#dateSubmit input').val();
+        console.log(qDate);
     })
-})
+});
