@@ -7,26 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- <link rel="stylesheet" href="./style.css"> -->
     <title>Musical Time Machine</title>
 </head>
 
 <body>
     <main class='d-flex justify-content-center align-content-center min-100-vh m-5'>
         <div class='col-12 col-md-9 flex-column align-center bg-dark p-5'>
-            <h1 class='text-center text-light'>Welcome to Musical Time Machine</h1>
-            <input id='dayinput' class='form-control m-3' placeholder="Search for a day or just hit today button"
-                type='text' />
+            <h1 class='text-center text-light'>Welcome to The Musical Time Machine</h1>
+            <input id='datepicker' class='form-control m-3' placeholder="Search for a day or just hit today button"
+            type='text' />
             <button id='todayBtn' class='btn btn-light btn-lg btn-block m-3' type='button'>Today</button>
             <button id='searchBtn' class='btn btn-light btn-lg btn-block m-3' type='button'>Search</button>
         </div>
-
     </main>
+        
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src='./script.js'></script>
+    
 </body>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
-    </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-<script src='./asset/script.js'></script>
-
 </html>
