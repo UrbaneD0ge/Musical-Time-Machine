@@ -7,7 +7,6 @@ var dateValue = searchParamArr[1];
 var todayButton = document.querySelector("#todayBtn")
 
 //Create element for button on second html page.
-
 var searchButton = document.querySelector("#searchBtn")
 
 //API call once user hits search button on homepage.
