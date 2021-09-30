@@ -93,7 +93,7 @@ getNews();
 // JQUI Datepicker
 $(function () {
   $("#datepicker").datepicker({showOtherMonths: true,
-      selectOtherMonths: true, maxDate: +0, dateFormat: "MM d" });
+      selectOtherMonths: true, dateFormat: "MM d" });
 });
  //On click of the search button on second page, this function will fire to load API Youtube fetch.
 searchButton.addEventListener("click", getVideosSearch2);

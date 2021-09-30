@@ -2,7 +2,7 @@
 // Datepicker 
 $(function () {
     $("#datepicker").datepicker({showOtherMonths: true,
-        selectOtherMonths: true, maxDate: +0, dateFormat: "MM d" });
+        selectOtherMonths: true, dateFormat: "MM d" });
 });
 
 //Form Handler
