@@ -17,7 +17,7 @@ $(function() {
 $(function() {
     $('#todayBtn').on('click', function(t) {
         t.preventDefault();
-        qDate = moment().format('l');
+        qDate = moment().format('MMMM Do');
         console.log(qDate);
     })
 })
