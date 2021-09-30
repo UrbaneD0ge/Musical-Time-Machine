@@ -75,4 +75,8 @@ function getVideosSearch() {
 // todayButton.addEventListener("click", getVideosToday);
 // searchButton.addEventListener("click", getVideosSearch);
 
-
+// JQUI Datepicker
+$(function () {
+  $("#datepicker").datepicker({showOtherMonths: true,
+      selectOtherMonths: true, maxDate: +0, dateFormat: "MM d" });
+});
