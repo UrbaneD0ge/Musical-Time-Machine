@@ -6,23 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Josefin+Sans:ital,wght@1,100;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="./style.css">
     <title>Musical Time Machine</title>
 </head>
 
-<body>
+<body class="bg-dark">
     <main class='d-flex justify-content-center align-content-center min-100-vh m-5'>
-        <div class='col-12 col-md-9 flex-column align-center bg-dark p-5'>
-            <h1 class='text-center text-light'>Welcome to The Musical Time Machine</h1>
+        <div id="rainbox" class="col-12 col-md-9 flex-column align-center rounded-lg rainbow">
+        <div class='col-12 flex-column align-center bg-dark p-5 rounded-lg'>
+            <h1 class='text-center text-light'>Welcome to <br>The <span id="musical">Musical</span> Time Machine</h1>
             <form id='dateSubmit' action='submit' autocomplete="off">
-                <input id='datepicker' class='form-control m-3' placeholder="Search for a day or just hit today button"
-                    type='text' />
+                <input id='datepicker' class='form-control m-3' placeholder="♪Let's do the TimeWarp AGAIN..♪" onfocus="this.placeholder=''"
+                    type='text'/>
                 <!-- <button id='todayBtn' class='btn btn-light btn-lg btn-block m-3' type='button'>Today</button> -->
                 <button onclick="document.location='page2.html'" id='searchBtn'
                     class='btn btn-light btn-lg btn-block m-3' type='submit'>Search</button>
             </form>
-
+        </div>
         </div>
     </main>
 

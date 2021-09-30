@@ -4,6 +4,54 @@
     margin: 0;
 }
 
+ {
+    border-radius: 30%;
+}
+
 .ui-datepicker-year {
     display: none
     }
+
+
+#datepicker {
+    font-size: 1.2em;
+    text-align: center;
+}
+
+#musical {
+    font-family: 'Courgette', 'cursive';
+
+}
+
+#rainbox {
+    margin: 5px;
+    padding: 5px;
+    max-width: 50%;
+}
+
+h1, button {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 100;
+}
+
+#searchBtn {
+    font-weight: 600;
+}
+
+#searchBtn:hover {
+    background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+background-size: 1800% 1800%;
+animation: rainbow 10s ease infinite;
+}
+
+.rainbow {
+background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+background-size: 1800% 1800%;
+animation: rainbow 14s ease infinite;
+}
+
+@-webkit-keyframes rainbow {
+0%{background-position:0% 82%}
+50%{background-position:100% 19%}
+100%{background-position:0% 82%}
+}

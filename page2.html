@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Musical Time Machine Results</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Josefin+Sans:ital,wght@1,100;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="./page2.css">
 </head>
@@ -15,11 +18,11 @@
     <div class='container'></div>
     <div class='row'>
         <header class='col-12'>
-            <h1> The Musical Time Machine</h1>
+            <h1> The <span id='musical'>Musical</span> Time Machine</h1>
         </header>
         <section class='col-2 side1 justify-content-center text-center'>
             <h2>Search for a day</h2>
-            <input id='datepicker' class='form-control m-3 custom-width' placeholder="Search for a day">
+            <input id='datepicker' class='form-control m-3 custom-width' placeholder="♪ Let's go back..♪" onfocus="this.placeholder=''">
             <button id='searchBtn' class='btn btn-light btn-lg btn-block m-3 custom-width' type='button'>Search</button>
             <div></div>
         </section>
