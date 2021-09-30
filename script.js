@@ -1,7 +1,8 @@
 
 // Datepicker 
 $(function () {
-    $("#datepicker").datepicker({ maxDate: +0 });
+    $("#datepicker").datepicker({showOtherMonths: true,
+        selectOtherMonths: true, maxDate: +0, dateFormat: "MM d" });
 });
 
 //Form Handler
