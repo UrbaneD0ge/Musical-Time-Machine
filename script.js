@@ -13,3 +13,11 @@ $(function() {
         console.log(qDate);
     })
 });
+
+$(function() {
+    $('#todayBtn').on('click', function(t) {
+        t.preventDefault();
+        qDate = moment().format('MMMM Do');
+        console.log(qDate);
+    })
+})
