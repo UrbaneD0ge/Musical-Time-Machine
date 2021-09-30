@@ -92,8 +92,10 @@ getNews();
 
 // JQUI Datepicker
 $(function () {
-  $("#datepicker").datepicker({showOtherMonths: true,
-      selectOtherMonths: true, dateFormat: "MM d" });
+  $("#datepicker").datepicker({
+    showOtherMonths: true,
+    selectOtherMonths: true, dateFormat: "MM d"
+  });
 });
 //save day inputgit
 // function saveDayInput() {
@@ -108,3 +110,50 @@ $(function () {
 //On click of the search button on second page, this function will fire to load API Youtube fetch.
 searchButton.addEventListener("click", getVideosSearch2);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//comment box
+// var addComBtn = document.querySelector('#addComBtn');
+// var primaryContained = document.querySelector('#container')
+// function userComment() {
+//   primaryContained.classList.remove('class', 'hide')
+// }
+// addComBtn.addEventListener('click', userComment);
+$(document).ready(function () {
+
+  $(".primaryContained").on('click', function () {
+    $(".comment").addClass("commentClicked");
+  });//end click
+  $("textarea").on('keyup.enter', function () {
+    $(".comment").addClass("commentClicked");
+  });//end keyup
+});//End Function
+
+new Vue({
+  el: "#app",
+  data: {
+    title: 'Add a comment',
+    newItem: '',
+    item: [],
+  },
+  methods: {
+    addItem() {
+      this.item.push(this.newItem);
+      this.newItem = "";
+    }
+  }
+
+});

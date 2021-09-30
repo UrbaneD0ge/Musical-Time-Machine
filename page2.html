@@ -76,7 +76,15 @@
             </iframe>
             <iframe width="100%" height="150px" class="youtubeVideo24">
             </iframe>
-
+            <div id='commentBox'>
+                <form id='container'>
+                    <textarea type="text" class="input float-right" placeholder="Write a comment" id='commentText'
+                        v-model="newItem" @keyup.enter="addItem()"></textarea>
+                    <button class='float-right' id='submitComBtn'>Submit</button>
+                </form>
+                <button class='primaryContained float-right' id='addComBtn' v-on:click="addItem()" type="submit">Add a
+                    comment</button>
+            </div>
         </main>
 
         <section class='col-2 side2 overflow'>
