@@ -1,20 +1,24 @@
+//Create element for button on second html page.
 var searchButton = document.querySelector("#searchBtn")
 
-
+//API call once user hits search button on homepage.
 function getVideosSearch(){
+  //API key
   const YOUTUBE_API_KEY = "AIzaSyAYAu3YiE2oiiiSFNWemBMC_Kw6uil9pU8";
   var searchDate = document.getElementById("dateSubmit").value;
-  //console.log(searchDate)
   
+  //URL to fetch using API call with parameters.
   const url = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=" + searchDate + "&regionCode=US&safeSearch=moderate&topicId=/m/04rlf&videoSyndicated=true&videoEmbeddable=true&type=video&order=viewCount&key=" + YOUTUBE_API_KEY;
   
+  //Fetching data using the url.
   fetch(url)
     .then(function(response){
      return response.json();
     })
     .then(function (data) {
       console.log(data);
-    
+  
+  //Loop to run through the array of data and show videos based on parameters.   
   for(var i = 0; i < 25; i++){
     var showVideos = data.items[i].id.videoId;
     var url = "https://www.youtube.com/embed/" + showVideos;
@@ -24,7 +28,7 @@ function getVideosSearch(){
     
   });
 }
-
+//Same function for second page search button.
 function getVideosSearch2(){
   const YOUTUBE_API_KEY = "AIzaSyAYAu3YiE2oiiiSFNWemBMC_Kw6uil9pU8";
   var searchDate2 = document.getElementById("dateSubmit").value;
@@ -48,6 +52,8 @@ function getVideosSearch2(){
     
   });
 }
+//Call function on load of second page.
  getVideosSearch();
 
+ //On click of the search button on second page, this function will fire to load API Youtube fetch.
 searchButton.addEventListener("click", getVideosSearch2);
