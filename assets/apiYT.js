@@ -19,8 +19,10 @@ function getNews() {
 }
 getNews()
 
-
-
+var searchParamArr =  document.location.search.split('=');
+//console.log(searchParamArr);
+var dateValue = searchParamArr[1];
+//console.log(dateValue);
 
 var todayButton = document.querySelector("#todayBtn")
 var searchButton = document.querySelector("#searchBtn")
