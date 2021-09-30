@@ -93,7 +93,7 @@ getNews();
 // JQUI Datepicker
 $(function () {
   $("#datepicker").datepicker({showOtherMonths: true,
-      selectOtherMonths: true, dateFormat: "MM d" });
+      selectOtherMonths: true, dateFormat: "m/d" });
 });
 //save day inputgit
 // function saveDayInput() {
