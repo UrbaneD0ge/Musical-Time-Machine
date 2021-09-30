@@ -1,0 +1,50 @@
+header {
+    background-color: black;
+    color: white;
+    text-align: center;
+    height: 50px;
+}
+
+main {
+    background-color: lightgray;
+    color: white;
+}
+
+.main-title {
+    text-align: center;
+}
+
+.container {
+    width: 100%;
+}
+
+.side1 {
+    background-color: gray;
+    width: 100%;
+    height: 100vh;
+    color: white;
+}
+
+.side2 {
+    background-color: gray;
+    width: 100%;
+    height: 100vh;
+    color: white;
+}
+
+.custom-width {
+    width: 15vw;
+    margin-right: 10px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.col-8{
+    height: 100vh;
+}
+
+.overflow{
+    overflow-y: scroll;
+}
