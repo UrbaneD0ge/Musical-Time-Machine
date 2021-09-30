@@ -13,6 +13,9 @@ $(function () {
         e.preventDefault();
         qDate = $('#dateSubmit input').val();
         console.log(qDate);
+
+        queryString = './page2.html?q=' + qDate;
+        location.assign(queryString);
     })
 });
 

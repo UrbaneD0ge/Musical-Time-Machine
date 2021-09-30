@@ -1,15 +1,23 @@
 
+var searchParamArr =  document.location.search.split('=');
+//console.log(searchParamArr);
+var dateValue = searchParamArr[1];
+//console.log(dateValue);
+
+var todayButton = document.querySelector("#todayBtn")
+
 //Create element for button on second html page.
+
 var searchButton = document.querySelector("#searchBtn")
 
 //API call once user hits search button on homepage.
 function getVideosSearch(){
   //API key
   const YOUTUBE_API_KEY = "AIzaSyAYAu3YiE2oiiiSFNWemBMC_Kw6uil9pU8";
-  var searchDate = document.getElementById("dateSubmit").value;
+  //var searchDate = document.getElementById("dateSubmit").value;
   
   //URL to fetch using API call with parameters.
-  const url = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=" + searchDate + "&regionCode=US&safeSearch=moderate&topicId=/m/04rlf&videoSyndicated=true&videoEmbeddable=true&type=video&order=viewCount&key=" + YOUTUBE_API_KEY;
+  const url = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=" + dateValue + "&regionCode=US&safeSearch=moderate&topicId=/m/04rlf&videoSyndicated=true&videoEmbeddable=true&type=video&order=viewCount&key=" + YOUTUBE_API_KEY;
   
   //Fetching data using the url.
   fetch(url)
@@ -35,7 +43,7 @@ function getVideosSearch2(){
 
   const YOUTUBE_API_KEY = "AIzaSyAYAu3YiE2oiiiSFNWemBMC_Kw6uil9pU8";
   var searchDate2 = document.getElementById("dateSubmit").value;
-  console.log(searchDate)
+  //console.log(searchDate)
 
   
   const url = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=" + searchDate2 + "&regionCode=US&safeSearch=moderate&topicId=/m/04rlf&videoSyndicated=true&videoEmbeddable=true&type=video&order=viewCount&key=" + YOUTUBE_API_KEY;
