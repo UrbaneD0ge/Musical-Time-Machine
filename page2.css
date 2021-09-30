@@ -40,3 +40,11 @@ main {
 .text-center {
     text-align: center;
 }
+
+.col-8{
+    height: 100vh;
+}
+
+.overflow{
+    overflow-y: scroll;
+}
