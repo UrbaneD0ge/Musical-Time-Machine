@@ -10,21 +10,30 @@
     <link rel="stylesheet" href="./page2.css">
 </head>
 <body>
-    <header>
-        <h1> The Musical Time Machine</h1>
-    </header>
+    <div class='container'></div>
+        <div class='row'>
+            <header class='col-12'>
+                <h1> The Musical Time Machine</h1>
+           </header>
+            <section class='col-2 side1 justify-content-center text-center'>
+                <h2>Search for a day</h2>
+                <input id='datepicker' class='form-control m-3 custom-width' placeholder="Search for a day">
+                <button id='searchBtn' class='btn btn-light btn-lg btn-block m-3 custom-width' type='button'>Search</button>
+                <div></div>
+            </section>
 
-    <section>
-        
-    </section>
+            <main class='col-8'>
+                <h2 class='main-title'>Search Results</h2>
+                    <!-- add links here -->
+            </main>
 
-    <main>
-
-    </main>
-
-    <section>
-
-    </section>
+            <section class='col-2 side2'>
+                <h3>Title:</h3>
+                <h3>Artist:</h3>
+                <h3>Release Day:</h3>
+            </section>
+        </div>
+    </div>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
