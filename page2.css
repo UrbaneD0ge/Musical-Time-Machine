@@ -52,3 +52,9 @@ main {
 .ui-datepicker-year {
     display: none
     }
+a {
+        color: white
+    }
+a:hover{
+        color:greenyellow
+    }
