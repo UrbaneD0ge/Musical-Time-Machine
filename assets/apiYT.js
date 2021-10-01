@@ -78,8 +78,9 @@ function getNews() {
       for (var i = 0; i < 25; i++) {
         let li = document.createElement('li');
         let link = document.createElement('a');
-        link.setAttribute('href', data.data[i].readMoreUrl)
+        link.setAttribute('href', data.data[i].readMoreUrl);
         //link.setAttribute('tartget', '_blank')
+        li.setAttribute('class', 'bg-secondary rounded list-group-item');
         link.textContent = data.data[i].title;
         li.appendChild(link);
         newsList.appendChild(li);
