@@ -25,6 +25,7 @@ h1, button {
 
 #musical {
     font-family: 'Courgette', 'cursive';
+    -webkit-animation: rainbow 16s infinite;
 }
 
 #rainbox {
@@ -50,12 +51,6 @@ h1, button {
 }
 
 @keyframes rainbow {
-    0%{background-position:0% 82%}
-    50%{background-position:100% 19%}
-    100%{background-position:0% 82%}
-}
-
-@-webkit-keyframes rainbow {
     0%{background-position:0% 82%}
     50%{background-position:100% 19%}
     100%{background-position:0% 82%}

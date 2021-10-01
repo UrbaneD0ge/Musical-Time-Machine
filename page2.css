@@ -73,9 +73,8 @@ a {
 }
 
 .list-group a:hover{
-        color:greenyellow
-    }
-
+    color:greenyellow
+}
 
 iframe {
     width: 100%;
@@ -93,7 +92,7 @@ iframe {
 
 #musical {
     font-family: 'Courgette', 'cursive';
-    -webkit-animation: rainbow 16s infinite;
+    -webkit-animation: rainbow 20s infinite;
 }
 
 h1 a:hover {
@@ -111,11 +110,12 @@ h1 a:hover {
     background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
     background-size: 1800% 1800%;
     animation: rainbow 10s ease infinite;
+    color: black !important;
 }
 
 
 /* synthesized from https://codepen.io/srmanu/pen/OVXXmj */
-@-webkit-keyframes rainbow {
+@keyframes rainbow {
     0%{background-position:0% 82%}
     50%{background-position:100% 19%}
     100%{background-position:0% 82%}
@@ -130,19 +130,21 @@ h1 a:hover {
     80%{color: DeepPink;}
     90%{color: DodgerBlue;}
     100%{color: orange;}
-
 }
 
 #addComBtn:hover {
     background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
     background-size: 1800% 1800%;
     animation: rainbow 10s ease infinite;
+    color: black !important;
 }
 #submitComBtn:hover{
     background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
     background-size: 1800% 1800%;
     animation: rainbow 10s ease infinite;
+    color: black !important;
 }
+
 h4 {
     padding-left: 10px;
     padding-top: 10px;
