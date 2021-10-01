@@ -8,7 +8,7 @@ var searchButton = document.querySelector("#searchBtn")
 
 //Get searches out of local storage and append them to the document in a button format
 function getSearches() {
-  for(var i = 1; i < searchHistory.length; i++) {
+  for (var i = 1; i < searchHistory.length; i++) {
     var dateSearched = searchHistory[i];
 
     var btnEl = document.createElement('li');
@@ -40,7 +40,7 @@ function getVideosSearch() {
 
       var cards = document.querySelector(".card-body")
       var individualCard = document.createElement('iframe');
-      
+
       //Loop to run through the array of data and show videos based on parameters.   
       for (var i = 0; i < 25; i++) {
         var individualCard = document.createElement('iframe');
@@ -50,7 +50,7 @@ function getVideosSearch() {
         //individualCard.setAttribute("class", "test");
         cards.appendChild(individualCard);
       }
-      
+
     });
 }
 //Same function for second page search button.
@@ -122,7 +122,7 @@ searchButton.addEventListener("click", getVideosSearch2);
 function inIt() {
   var storedSearches = JSON.parse(localStorage.getItem('searches'));
 
-  if(storedSearches){
+  if (storedSearches) {
     searchHistory = storedSearches;
   }
   getSearches();
@@ -158,6 +158,7 @@ function saveComment(event) {
 submitBtn.addEventListener('click', saveComment);
 //make function to get the comment display on page
 function printComment() {
+  commentShow.innerHTML = '';
   var commentSave = JSON.parse(localStorage.getItem('userComment')) || [];
   for (var i = 0; i < commentSave.length; i++) {
     // var div = document.createElement('div');
@@ -166,7 +167,6 @@ function printComment() {
     h4.textContent = commentSave[i].initials + ' ' + "on" + ' ' + commentSave[i].submitAt;
     p.textContent = commentSave[i].userComInput;
     h4.appendChild(p);
-    // div.appendChild(h4);
     commentShow.appendChild(h4)
   }
 }
