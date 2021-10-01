@@ -58,3 +58,10 @@ a {
 a:hover{
         color:greenyellow
     }
+
+.searched {
+    display: flex;
+    flex-direction: column;
+    height: 60vh;
+    list-style-type:none;
+}
