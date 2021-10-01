@@ -99,7 +99,7 @@ iframe {
 h1 a:hover {
     font-weight: 400;
     text-decoration: inherit;
-    color: black;
+    color: inherit;
 }
 
 #datepicker {
