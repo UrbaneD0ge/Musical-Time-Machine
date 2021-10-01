@@ -2,7 +2,6 @@
 var searchParamArr = document.location.search.split('=');
 //console.log(searchParamArr);
 var dateValue = searchParamArr[1];
-console.log(dateValue);
 
 //Create element for button on second html page.
 var searchButton = document.querySelector("#searchBtn")
@@ -23,7 +22,6 @@ function getVideosSearch() {
     })
     .then(function (data) {
 
-      
       var cards = document.querySelector(".card-body")
       var individualCard = document.createElement('iframe');
       
@@ -32,10 +30,9 @@ function getVideosSearch() {
         var individualCard = document.createElement('iframe');
         var showVideos = data.items[i].id.videoId;
         var url = "https://www.youtube.com/embed/" + showVideos;
-        //videosArray.push(url)
         individualCard.setAttribute('src', url);
+        //individualCard.setAttribute("class", "test");
         cards.appendChild(individualCard);
-        //console.log(individualCard)
       }
       
     });
@@ -44,9 +41,7 @@ function getVideosSearch() {
 function getVideosSearch2() {
 
   const YOUTUBE_API_KEY = "AIzaSyCnQnRhLEtt5EzxV8Px3q6LLGqZsxPq3MM";
-  var searchDate2 = document.getElementById("dateSubmit").value;
-  //console.log(searchDate)
-
+  var searchDate2 = document.getElementById("datepicker").value;
 
   const url = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=" + searchDate2 + "&regionCode=US&safeSearch=moderate&topicId=/m/04rlf&videoSyndicated=true&videoEmbeddable=true&type=video&order=viewCount&key=" + YOUTUBE_API_KEY;
 
@@ -57,12 +52,17 @@ function getVideosSearch2() {
     .then(function (data) {
       console.log(data);
 
+      var cards = document.querySelector(".card-body")
+      var individualCard = document.createElement('iframe');
+      //var targetTest = document.querySelectorAll(".test");
 
       for (var i = 0; i < 25; i++) {
+        var individualCard = document.createElement('iframe');
         var showVideos = data.items[i].id.videoId;
         var url = "https://www.youtube.com/embed/" + showVideos;
-        console.log(url)
-        document.querySelector(".youtubeVideo" + i).src = url;
+        individualCard.setAttribute('src', url);
+        //targetTest.setAttribute("src", url);
+        cards.replaceChild(individualCard, cards.childNodes[i]);
       }
 
     });
