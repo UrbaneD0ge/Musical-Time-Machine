@@ -23,17 +23,17 @@
                 <h1><a href="./index.html">The <span id='musical'> Musical</span> Time Machine</a></h1>
             </header>
             <!-- Search Area -->
-            <section class='col-3 side1 justify-content-center text-center bg-dark p-5'>
-                <h2>Search for a Day</h2>
-                <input id='datepicker' class='text-dark form-control m-2 placeholder=' ♪ Lets go back..♪'
+            <section class='col-lg-3 col-sm-12 side1 justify-content-center text-center bg-dark p-5'>
+                <h2 class='main-title'>Search for a Day</h2>
+                <input id='datepicker' class='text-dark form-control m-2' placeholder=' ♪ Lets go back..♪'
                     onfocus="this.placeholder=''">
                 <button id='searchBtn' class='btn btn-light btn-lg btn-block m-2' type='button'>Search</button>
                 <button class='btn btn-light btn-lg btn-block m-2' id='addComBtn'
                     onclick="document.location='#commentBox'" type="button">Add a comment</button>
-                <div id='recent-searches' class='searched'></div>
             </section>
             <!-- Video Cards -->
-            <main class='col-6 overflow'>
+
+            <main class='col-lg-6 col-sm-12 overflow'>
                 <h2 class='main-title m-3 text-dark'>Search Results</h2>
                 <div class="card">
                     <div class="card-body">
@@ -59,7 +59,7 @@
             </main>
 
             <!-- News Column -->
-            <section class='col-3 side2 overflow bg-dark'>
+            <section class='col-lg-3 col-sm-12 side2 overflow bg-dark'>
                 <h3 class='text-center m-3'>Entertainment News of the Day</h3>
                 <aside id='news-list' class='list-group'>
                 </aside>
