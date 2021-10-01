@@ -2,9 +2,7 @@
 var searchParamArr = document.location.search.split('=');
 //console.log(searchParamArr);
 var dateValue = searchParamArr[1];
-//console.log(dateValue);
-
-var todayButton = document.querySelector("#todayBtn")
+console.log(dateValue);
 
 //Create element for button on second html page.
 var searchButton = document.querySelector("#searchBtn")
@@ -12,7 +10,7 @@ var searchButton = document.querySelector("#searchBtn")
 //API call once user hits search button on homepage.
 function getVideosSearch() {
   //API key
-  const YOUTUBE_API_KEY = "AIzaSyAYAu3YiE2oiiiSFNWemBMC_Kw6uil9pU8";
+  const YOUTUBE_API_KEY = "AIzaSyCnQnRhLEtt5EzxV8Px3q6LLGqZsxPq3MM";
   //var searchDate = document.getElementById("dateSubmit").value;
 
   //URL to fetch using API call with parameters.
@@ -24,23 +22,28 @@ function getVideosSearch() {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
 
-
+      
+      var cards = document.querySelector(".card-body")
+      var individualCard = document.createElement('iframe');
+      
       //Loop to run through the array of data and show videos based on parameters.   
       for (var i = 0; i < 25; i++) {
+        var individualCard = document.createElement('iframe');
         var showVideos = data.items[i].id.videoId;
         var url = "https://www.youtube.com/embed/" + showVideos;
-        console.log(url)
-        document.querySelector(".youtubeVideo" + i).src = url;
+        //videosArray.push(url)
+        individualCard.setAttribute('src', url);
+        cards.appendChild(individualCard);
+        //console.log(individualCard)
       }
-
+      
     });
 }
 //Same function for second page search button.
 function getVideosSearch2() {
 
-  const YOUTUBE_API_KEY = "AIzaSyAYAu3YiE2oiiiSFNWemBMC_Kw6uil9pU8";
+  const YOUTUBE_API_KEY = "AIzaSyCnQnRhLEtt5EzxV8Px3q6LLGqZsxPq3MM";
   var searchDate2 = document.getElementById("dateSubmit").value;
   //console.log(searchDate)
 
@@ -74,7 +77,6 @@ function getNews() {
     .then(function (response) {
       return response.json()
     }).then(function (data) {
-      console.log(data)
       for (var i = 0; i < 25; i++) {
         let li = document.createElement('li');
         let link = document.createElement('a');
@@ -90,7 +92,7 @@ function getNews() {
 
 getNews();
 
-// JQUI Datepicker
+//JQUI Datepicker
 $(function () {
   $("#datepicker").datepicker({showOtherMonths: true,
       selectOtherMonths: true, dateFormat: "m/d" });
