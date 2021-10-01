@@ -160,15 +160,14 @@ submitBtn.addEventListener('click', saveComment);
 function printComment() {
   var commentSave = JSON.parse(localStorage.getItem('userComment')) || [];
   for (var i = 0; i < commentSave.length; i++) {
-    var div = document.createElement('div');
-    div.classList.add('class', 'commentStyle');
+    // var div = document.createElement('div');
     var h4 = document.createElement('h4');
     var p = document.createElement('p');
     h4.textContent = commentSave[i].initials + ' ' + "on" + ' ' + commentSave[i].submitAt;
     p.textContent = commentSave[i].userComInput;
     h4.appendChild(p);
-    div.appendChild(h4);
-    commentShow.appendChild(div)
+    // div.appendChild(h4);
+    commentShow.appendChild(h4)
   }
 }
 //run function to prevent comment disappear when refesh the page
