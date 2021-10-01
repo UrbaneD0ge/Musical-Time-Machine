@@ -2,7 +2,7 @@
 // Datepicker 
 $(function () {
     $("#datepicker").datepicker({showOtherMonths: true,
-        selectOtherMonths: true, dateFormat: "m/d" });
+        selectOtherMonths: true, dateFormat: "MM d" });
 });
 
 //Form Handler
@@ -22,7 +22,7 @@ $(function () {
 $(function () {
     $('#todayBtn').on('click', function (t) {
         t.preventDefault();
-        qDate = moment().format('m/d');
+        qDate = moment().format('MM d');
         console.log(qDate);
     })
 })

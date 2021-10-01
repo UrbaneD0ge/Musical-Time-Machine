@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Musical Time Machine Results</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Josefin+Sans:ital,wght@1,100;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="./page2.css">
 </head>
@@ -15,30 +18,46 @@
     <div class='container'></div>
     <div class='row'>
         <header class='col-12'>
-            <h1> The Musical Time Machine</h1>
+            <h1><a href="./index.html">The <span id='musical'> Musical</span> Time Machine</a></h1>
         </header>
-        <section class='col-3 side1 justify-content-center text-center'>
-            <h2>Search for a day</h2>
-            <input id='datepicker' class='form-control m-4 custom-width' placeholder="Search for a day">
-            <button id='searchBtn' class='btn btn-light btn-lg btn-block m-4 custom-width' type='button'>Search</button>
-            <div></div>
+<!-- Search Area -->
+        <section class='col-2 side1 justify-content-center text-center bg-dark container p-5'>
+            <h2>Search for a day</h2>          
+            <input id='datepicker' class='text-dark form-control m-2 placeholder='♪ Lets go back..♪' onfocus="this.placeholder=''">
+            <button id='searchBtn' class='btn btn-light btn-lg btn-block m-2' type='button'>Search</button>
+             <button class='btn btn-light btn-lg btn-block m-3 custom-width' id='addComBtn'
+                onclick="document.location='#commentBox'" type="button">Add a comment</button>
+            <div id='recent-searches' class='searched'></div>
         </section>
-
-        <main class='col-6 overflow'>
+<!-- Video Cards -->
+           <main class='col-6 overflow'>
             <h2 class='main-title'>Search Results</h2>
             <div class="card">
                 <div class="card-body">
                  
                 </div>
-              </div>
+              </div>   
+<!--add a comment box for user-->
+            <div id='commentBox'>
+                <form id='container'>
+                    <div class='text-dark'>Enter your name or initials: <textarea type="text"
+                            class="input form-control m-2" placeholder="Your name or initials" id='name'></textarea>
+                    </div>
+                    <div class='text-dark'>Write your comment: <textarea type="text" class="input form-control m-2"
+                            placeholder="Write a comment" id='commentText'></textarea>
+                    </div>
+                    <button class='btn btn-outline-secondary btn-lg btn-block' id='submitComBtn'>Submit</button>
+                </form>
+                <br>
+                <div id='commentDisplay' class='text-center text-dark bg-light'></div>
+            </div>
         </main>
 
-        <section class='col-3 side2 overflow'>
-            <!-- <h3>Title:</h3>
-                <h3>Artist:</h3>
-                <h3>Release Day:</h3> -->
-            <div id=news-list></div>
-
+<!-- News Column -->
+        <section class='col-3 side2 overflow bg-dark'>
+           <h3>News of the day</h3>                                        
+            <aside id='news-list' class='list-group'>
+             </aside>
         </section>
     </div>
     </div>

@@ -1,4 +1,4 @@
-
+searchHistory = [];
 var searchParamArr = document.location.search.split('=');
 //console.log(searchParamArr);
 var dateValue = searchParamArr[1];
@@ -6,8 +6,24 @@ var dateValue = searchParamArr[1];
 //Create element for button on second html page.
 var searchButton = document.querySelector("#searchBtn")
 
+//Get searches out of local storage and append them to the document in a button format
+function getSearches() {
+  for(var i = 1; i < searchHistory.length; i++) {
+    var dateSearched = searchHistory[i];
+
+    var btnEl = document.createElement('li');
+    btnEl.textContent = dateSearched;
+
+    var searchList = document.getElementById('recent-searches');
+    searchList.appendChild(btnEl);
+  }
+}
+
 //API call once user hits search button on homepage.
 function getVideosSearch() {
+  var dateSearch = dateValue;
+
+  searchHistory.push(dateSearch);
   //API key
   const YOUTUBE_API_KEY = "AIzaSyCnQnRhLEtt5EzxV8Px3q6LLGqZsxPq3MM";
   //var searchDate = document.getElementById("dateSubmit").value;
@@ -39,10 +55,8 @@ function getVideosSearch() {
 }
 //Same function for second page search button.
 function getVideosSearch2() {
-
   const YOUTUBE_API_KEY = "AIzaSyCnQnRhLEtt5EzxV8Px3q6LLGqZsxPq3MM";
   var searchDate2 = document.getElementById("datepicker").value;
-
   const url = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=" + searchDate2 + "&regionCode=US&safeSearch=moderate&topicId=/m/04rlf&videoSyndicated=true&videoEmbeddable=true&type=video&order=viewCount&key=" + YOUTUBE_API_KEY;
 
   fetch(url)
@@ -51,17 +65,15 @@ function getVideosSearch2() {
     })
     .then(function (data) {
       console.log(data);
+      localStorage.setItem('searches', JSON.stringify(searchHistory));
 
       var cards = document.querySelector(".card-body")
       var individualCard = document.createElement('iframe');
-      //var targetTest = document.querySelectorAll(".test");
-
       for (var i = 0; i < 25; i++) {
         var individualCard = document.createElement('iframe');
         var showVideos = data.items[i].id.videoId;
         var url = "https://www.youtube.com/embed/" + showVideos;
         individualCard.setAttribute('src', url);
-        //targetTest.setAttribute("src", url);
         cards.replaceChild(individualCard, cards.childNodes[i]);
       }
 
@@ -72,7 +84,7 @@ getVideosSearch();
 
 var newsList = document.querySelector('#news-list')
 function getNews() {
-  let url = `https://inshortsapi.vercel.app/news?category=world`
+  let url = `https://inshortsapi.vercel.app/news?category=entertainment`
   fetch(url)
     .then(function (response) {
       return response.json()
@@ -80,8 +92,9 @@ function getNews() {
       for (var i = 0; i < 25; i++) {
         let li = document.createElement('li');
         let link = document.createElement('a');
-        link.setAttribute('href', data.data[i].readMoreUrl)
+        link.setAttribute('href', data.data[i].readMoreUrl);
         //link.setAttribute('tartget', '_blank')
+        li.setAttribute('class', 'bg-secondary rounded list-group-item');
         link.textContent = data.data[i].title;
         li.appendChild(link);
         newsList.appendChild(li);
@@ -94,19 +107,70 @@ getNews();
 
 //JQUI Datepicker
 $(function () {
-  $("#datepicker").datepicker({showOtherMonths: true,
-      selectOtherMonths: true, dateFormat: "m/d" });
+
+  $("#datepicker").datepicker({
+    showOtherMonths: true,
+    selectOtherMonths: true, dateFormat: "MM d"
+  });
+
 });
-//save day inputgit
-// function saveDayInput() {
-//   var searchDate = document.getElementById("datepicker").value;
-//   if (searchDate !== '') {
-//     var searchHistory = JSON.parse(localStorage.getItem('search')) || [];
-//     searchHistory.push(searchDate);
-//     window.localStorage.setItem('highscores', JSON.stringify(viewScore));
-//     console.log(searchHistory);
-//   }
-// };
 //On click of the search button on second page, this function will fire to load API Youtube fetch.
 searchButton.addEventListener("click", getVideosSearch2);
+
+
+//local storage
+function inIt() {
+  var storedSearches = JSON.parse(localStorage.getItem('searches'));
+
+  if(storedSearches){
+    searchHistory = storedSearches;
+  }
+  getSearches();
+}
+
+inIt();
+
+//comment box
+var userName = document.getElementById('name');
+var commentInput = document.getElementById('commentText');
+var submitBtn = document.getElementById('submitComBtn');
+var commentShow = document.getElementById('commentDisplay');
+
+function saveComment(event) {
+  event.preventDefault();
+  var name = userName.value.trim();
+  var comment = commentInput.value.trim();
+  var time = moment().format("MMM Do, YYYY HH:mm:ss");
+  if (name !== '' && comment !== '') {
+    var commentSave = JSON.parse(localStorage.getItem('userComment')) || [];
+    var userComment = {
+      initials: name,
+      submitAt: time,
+      userComInput: comment,
+    }
+    commentSave.push(userComment);
+    window.localStorage.setItem('userComment', JSON.stringify(commentSave))
+  } else {
+    alert('You need to put both name and comment to save your comment')
+  }
+  printComment();
+}
+submitBtn.addEventListener('click', saveComment);
+//make function to get the comment display on page
+function printComment() {
+  var commentSave = JSON.parse(localStorage.getItem('userComment')) || [];
+  for (var i = 0; i < commentSave.length; i++) {
+    var div = document.createElement('div');
+    div.classList.add('class', 'commentStyle');
+    var h4 = document.createElement('h4');
+    var p = document.createElement('p');
+    h4.textContent = commentSave[i].initials + ' ' + "on" + ' ' + commentSave[i].submitAt;
+    p.textContent = commentSave[i].userComInput;
+    h4.appendChild(p);
+    div.appendChild(h4);
+    commentShow.appendChild(div)
+  }
+}
+//run function to prevent comment disappear when refesh the page
+printComment();
 
