@@ -3,27 +3,14 @@ var searchParamArr = document.location.search.split('=');
 //console.log(searchParamArr);
 var dateValue = searchParamArr[1];
 
+var todayButton = document.querySelector("#todayBtn")
+
 //Create element for button on second html page.
 var searchButton = document.querySelector("#searchBtn")
 
-//Get searches out of local storage and append them to the document in a button format
-function getSearches() {
-  for (var i = 1; i < searchHistory.length; i++) {
-    var dateSearched = searchHistory[i];
-
-    var btnEl = document.createElement('li');
-    btnEl.textContent = dateSearched;
-
-    var searchList = document.getElementById('recent-searches');
-    searchList.appendChild(btnEl);
-  }
-}
-
 //API call once user hits search button on homepage.
 function getVideosSearch() {
-  var dateSearch = dateValue;
-
-  searchHistory.push(dateSearch);
+  
   //API key
   const YOUTUBE_API_KEY = "AIzaSyCnQnRhLEtt5EzxV8Px3q6LLGqZsxPq3MM";
   //var searchDate = document.getElementById("dateSubmit").value;
@@ -116,19 +103,6 @@ $(function () {
 });
 //On click of the search button on second page, this function will fire to load API Youtube fetch.
 searchButton.addEventListener("click", getVideosSearch2);
-
-
-//local storage
-function inIt() {
-  var storedSearches = JSON.parse(localStorage.getItem('searches'));
-
-  if (storedSearches) {
-    searchHistory = storedSearches;
-  }
-  getSearches();
-}
-
-inIt();
 
 //comment box
 var userName = document.getElementById('name');
