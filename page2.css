@@ -20,10 +20,6 @@ h2, button, a, p {
     font-weight: 400;
 }
 
-.ui-widget-content {
-    font-family: "Josefin Sans";
-    background-color: dimgray;
-}
 
 .main-title {
     text-align: center;
@@ -66,7 +62,12 @@ h2, button, a, p {
 
 .ui-datepicker-year {
     display: none
-    }
+}
+
+.ui-widget-content {
+    font-family: "Josefin Sans";
+    background-color: dimgray;
+}
 
 a {
     color: white;
