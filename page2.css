@@ -62,13 +62,11 @@ a:hover{
     display: none;
 }
 
-/* div {
+#commentDisplay {
     background-color: gray;
-    width:100vh;
-    max-width: 80%;
-    border-radius: 2px solid greenyellow;
+    border: 2px solid black;
 }
-h4{
+/* h4{
     padding-left: 5px;
     font-family: 'Courgette', 'cursive';
 }
@@ -76,3 +74,7 @@ h4 p {
     padding-left: 10px;
     font-family: 'Courgette', 'cursive';
 } */
+.commentStyle {
+    border: black;
+    border-radius: 2px;
+}

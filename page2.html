@@ -21,6 +21,7 @@
             <h2>Search for a day</h2>
             <input id='datepicker' class='form-control m-3 custom-width' placeholder="Search for a day">
             <button id='searchBtn' class='btn btn-light btn-lg btn-block m-3 custom-width' type='button'>Search</button>
+            <!--button on click lead to comment box-->
             <button class='btn btn-light btn-lg btn-block m-3 custom-width' id='addComBtn'
                 onclick="document.location='#commentBox'" type="button">Add a comment</button>
             <div></div>
@@ -78,6 +79,7 @@
             </iframe>
             <iframe width="100%" height="150px" class="youtubeVideo24">
             </iframe>
+            <!--add a comment box for user-->
             <div id='commentBox'>
                 <form id='container'>
                     <div class='text-dark'>Enter your name or initials: <textarea type="text"
@@ -89,7 +91,7 @@
                     <button class='btn btn-outline-secondary btn-lg btn-block' id='submitComBtn'>Submit</button>
                 </form>
                 <br>
-                <div id='commentBox' class='text-center text-dark bg-light'></div>
+                <div id='commentDisplay' class='text-center text-dark bg-light'></div>
             </div>
         </main>
 
