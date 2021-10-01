@@ -18,16 +18,17 @@
     <div class='container'></div>
     <div class='row'>
         <header class='col-12'>
-            <h1> The <span id='musical'>Musical</span> Time Machine</h1>
+            <h1><a href="./index.html">The <span id='musical'> Musical</span> Time Machine</a></h1>
         </header>
-        <section class='col-2 side1 justify-content-center text-center'>
+<!-- Search Area -->
+        <section class='col-2 side1 justify-content-center text-center bg-dark container p-5'>
             <h2>Search for a day</h2>
-            <input id='datepicker' class='form-control m-3 custom-width' placeholder="♪ Let's go back..♪" onfocus="this.placeholder=''">
-            <button id='searchBtn' class='btn btn-light btn-lg btn-block m-3 custom-width' type='button'>Search</button>
+            <input id='datepicker' class='text-dark form-control m-2 placeholder='♪ Lets go back..♪' onfocus="this.placeholder=''">
+            <button id='searchBtn' class='btn btn-light btn-lg btn-block m-2' type='button'>Search</button>
             <div></div>
         </section>
-
-        <main class='col-8 overflow'>
+<!-- Video Cards -->
+        <main class='col-7 overflow bg-secondary'>
             <h2 class='main-title'>Search Results</h2>
             <iframe width="100%" height="150px" class="youtubeVideo0">
             </iframe>
@@ -81,13 +82,13 @@
             </iframe>
 
         </main>
-
-        <section class='col-2 side2 overflow'>
+<!-- News Column -->
+        <section class='col-3 side2 overflow bg-dark'>
+            <aside id='news-list' class='list-group'>
             <!-- <h3>Title:</h3>
                 <h3>Artist:</h3>
                 <h3>Release Day:</h3> -->
-            <div id=news-list></div>
-
+            </aside>
         </section>
     </div>
     </div>
