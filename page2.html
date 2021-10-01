@@ -21,6 +21,8 @@
             <h2>Search for a day</h2>
             <input id='datepicker' class='form-control m-3 custom-width' placeholder="Search for a day">
             <button id='searchBtn' class='btn btn-light btn-lg btn-block m-3 custom-width' type='button'>Search</button>
+            <button class='btn btn-light btn-lg btn-block m-3 custom-width' id='addComBtn'
+                onclick="document.location='#commentBox'" type="button">Add a comment</button>
             <div></div>
         </section>
 
@@ -78,21 +80,22 @@
             </iframe>
             <div id='commentBox'>
                 <form id='container'>
-                    <textarea type="text" class="input float-right" placeholder="Write a comment" id='commentText'
-                        v-model="newItem" @keyup.enter="addItem()"></textarea>
-                    <button class='float-right' id='submitComBtn'>Submit</button>
+                    <div class='text-dark'>Enter your name or initials: <textarea type="text"
+                            class="input form-control m-2" placeholder="Your name or initials" id='name'></textarea>
+                    </div>
+                    <div class='text-dark'>Write your comment: <textarea type="text" class="input form-control m-2"
+                            placeholder="Write a comment" id='commentText'></textarea>
+                    </div>
+                    <button class='btn btn-outline-secondary btn-lg btn-block' id='submitComBtn'>Submit</button>
                 </form>
-                <button class='primaryContained float-right' id='addComBtn' v-on:click="addItem()" type="submit">Add a
-                    comment</button>
+                <br>
+                <div id='commentBox' class='text-center text-dark bg-light'></div>
             </div>
         </main>
 
         <section class='col-2 side2 overflow'>
-            <!-- <h3>Title:</h3>
-                <h3>Artist:</h3>
-                <h3>Release Day:</h3> -->
+            <h3>News of the day</h3>
             <div id=news-list></div>
-
         </section>
     </div>
     </div>

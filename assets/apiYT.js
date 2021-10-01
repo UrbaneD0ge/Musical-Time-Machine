@@ -69,7 +69,7 @@ getVideosSearch();
 
 var newsList = document.querySelector('#news-list')
 function getNews() {
-  let url = `https://inshortsapi.vercel.app/news?category=world`
+  let url = `https://inshortsapi.vercel.app/news?category=entertainment`
   fetch(url)
     .then(function (response) {
       return response.json()
@@ -111,49 +111,42 @@ $(function () {
 searchButton.addEventListener("click", getVideosSearch2);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //comment box
-// var addComBtn = document.querySelector('#addComBtn');
-// var primaryContained = document.querySelector('#container')
-// function userComment() {
-//   primaryContained.classList.remove('class', 'hide')
-// }
-// addComBtn.addEventListener('click', userComment);
-$(document).ready(function () {
-
-  $(".primaryContained").on('click', function () {
-    $(".comment").addClass("commentClicked");
-  });//end click
-  $("textarea").on('keyup.enter', function () {
-    $(".comment").addClass("commentClicked");
-  });//end keyup
-});//End Function
-
-new Vue({
-  el: "#app",
-  data: {
-    title: 'Add a comment',
-    newItem: '',
-    item: [],
-  },
-  methods: {
-    addItem() {
-      this.item.push(this.newItem);
-      this.newItem = "";
+var userName = document.getElementById('name');
+var commentInput = document.getElementById('commentText');
+var submitBtn = document.getElementById('submitComBtn');
+var commentShow = document.getElementById('commentBox');
+var time = moment().format('dddd, MMM Do YYYY');
+function saveComment(event) {
+  event.preventDefault();
+  var name = userName.value.trim();
+  var comment = commentInput.value.trim();
+  if (name !== '' && comment !== '') {
+    var commentSave = JSON.parse(localStorage.getItem('userComment')) || [];
+    var userComment = {
+      initials: name,
+      userComInput: comment,
     }
+    // userComment.push(commentSave);
+    commentSave.push(userComment);
+    window.localStorage.setItem('userComment', JSON.stringify(commentSave))
+  } else {
+    alert('You need to put both name and comment to save your comment')
   }
+  printComment();
+}
+submitBtn.addEventListener('click', saveComment);
+function printComment() {
+  var commentSave = JSON.parse(localStorage.getItem('userComment')) || [];
+  for (var i = 0; i < commentSave.length; i++) {
+    var div = document.createElement('tr');
+    var h4 = document.createElement('h4');
+    var p = document.createElement('p');
+    h4.textContent = commentSave[i].initials;
+    p.textContent = commentSave[i].userComInput;
+    h4.appendChild(p);
+    div.appendChild(h4);
+    commentShow.appendChild(div)
+  }
+}
 
-});
