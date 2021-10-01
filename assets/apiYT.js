@@ -69,7 +69,7 @@ getVideosSearch();
 
 var newsList = document.querySelector('#news-list')
 function getNews() {
-  let url = `https://inshortsapi.vercel.app/news?category=world`
+  let url = `https://inshortsapi.vercel.app/news?category=entertainment`
   fetch(url)
     .then(function (response) {
       return response.json()
@@ -93,19 +93,67 @@ getNews();
 
 // JQUI Datepicker
 $(function () {
-  $("#datepicker").datepicker({showOtherMonths: true,
-      selectOtherMonths: true, dateFormat: "m/d" });
+
+  $("#datepicker").datepicker({
+    showOtherMonths: true,
+    selectOtherMonths: true, dateFormat: "MM d"
+  });
+
 });
-//save day inputgit
-// function saveDayInput() {
-//   var searchDate = document.getElementById("datepicker").value;
-//   if (searchDate !== '') {
-//     var searchHistory = JSON.parse(localStorage.getItem('search')) || [];
-//     searchHistory.push(searchDate);
-//     window.localStorage.setItem('highscores', JSON.stringify(viewScore));
-//     console.log(searchHistory);
-//   }
-// };
 //On click of the search button on second page, this function will fire to load API Youtube fetch.
 searchButton.addEventListener("click", getVideosSearch2);
 
+
+
+
+
+
+
+
+
+
+
+
+//comment box
+var userName = document.getElementById('name');
+var commentInput = document.getElementById('commentText');
+var submitBtn = document.getElementById('submitComBtn');
+var commentShow = document.getElementById('commentDisplay');
+
+function saveComment(event) {
+  event.preventDefault();
+  var name = userName.value.trim();
+  var comment = commentInput.value.trim();
+  var time = moment().format("MMM Do, YYYY HH:mm:ss");
+  if (name !== '' && comment !== '') {
+    var commentSave = JSON.parse(localStorage.getItem('userComment')) || [];
+    var userComment = {
+      initials: name,
+      submitAt: time,
+      userComInput: comment,
+    }
+    commentSave.push(userComment);
+    window.localStorage.setItem('userComment', JSON.stringify(commentSave))
+  } else {
+    alert('You need to put both name and comment to save your comment')
+  }
+  printComment();
+}
+submitBtn.addEventListener('click', saveComment);
+//make function to get the comment display on page
+function printComment() {
+  var commentSave = JSON.parse(localStorage.getItem('userComment')) || [];
+  for (var i = 0; i < commentSave.length; i++) {
+    var div = document.createElement('div');
+    div.classList.add('class', 'commentStyle');
+    var h4 = document.createElement('h4');
+    var p = document.createElement('p');
+    h4.textContent = commentSave[i].initials + ' ' + "on" + ' ' + commentSave[i].submitAt;
+    p.textContent = commentSave[i].userComInput;
+    h4.appendChild(p);
+    div.appendChild(h4);
+    commentShow.appendChild(div)
+  }
+}
+//run function to prevent comment disappear when refesh the page
+printComment();
