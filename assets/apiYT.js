@@ -2,7 +2,6 @@ searchHistory = [];
 var searchParamArr = document.location.search.split('=');
 //console.log(searchParamArr);
 var dateValue = searchParamArr[1];
-console.log(dateValue);
 
 var todayButton = document.querySelector("#todayBtn")
 
@@ -13,7 +12,7 @@ var searchButton = document.querySelector("#searchBtn")
 function getVideosSearch() {
   
   //API key
-  const YOUTUBE_API_KEY = "AIzaSyAYAu3YiE2oiiiSFNWemBMC_Kw6uil9pU8";
+  const YOUTUBE_API_KEY = "AIzaSyCnQnRhLEtt5EzxV8Px3q6LLGqZsxPq3MM";
   //var searchDate = document.getElementById("dateSubmit").value;
 
   //URL to fetch using API call with parameters.
@@ -25,28 +24,26 @@ function getVideosSearch() {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
 
+      var cards = document.querySelector(".card-body")
+      var individualCard = document.createElement('iframe');
 
       //Loop to run through the array of data and show videos based on parameters.   
       for (var i = 0; i < 25; i++) {
+        var individualCard = document.createElement('iframe');
         var showVideos = data.items[i].id.videoId;
         var url = "https://www.youtube.com/embed/" + showVideos;
-        console.log(url)
-        document.querySelector(".youtubeVideo" + i).src = url;
+        individualCard.setAttribute('src', url);
+        //individualCard.setAttribute("class", "test");
+        cards.appendChild(individualCard);
       }
 
     });
 }
 //Same function for second page search button.
 function getVideosSearch2() {
-
-  const YOUTUBE_API_KEY = "AIzaSyAYAu3YiE2oiiiSFNWemBMC_Kw6uil9pU8";
+  const YOUTUBE_API_KEY = "AIzaSyCnQnRhLEtt5EzxV8Px3q6LLGqZsxPq3MM";
   var searchDate2 = document.getElementById("datepicker").value;
-  console.log(searchDate2);
-  searchHistory.push(searchDate2);
-  console.log(searchHistory);
-
   const url = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=" + searchDate2 + "&regionCode=US&safeSearch=moderate&topicId=/m/04rlf&videoSyndicated=true&videoEmbeddable=true&type=video&order=viewCount&key=" + YOUTUBE_API_KEY;
 
   fetch(url)
@@ -57,12 +54,14 @@ function getVideosSearch2() {
       console.log(data);
       localStorage.setItem('searches', JSON.stringify(searchHistory));
 
-
+      var cards = document.querySelector(".card-body")
+      var individualCard = document.createElement('iframe');
       for (var i = 0; i < 25; i++) {
+        var individualCard = document.createElement('iframe');
         var showVideos = data.items[i].id.videoId;
         var url = "https://www.youtube.com/embed/" + showVideos;
-        console.log(url)
-        document.querySelector(".youtubeVideo" + i).src = url;
+        individualCard.setAttribute('src', url);
+        cards.replaceChild(individualCard, cards.childNodes[i]);
       }
 
     });
@@ -77,7 +76,6 @@ function getNews() {
     .then(function (response) {
       return response.json()
     }).then(function (data) {
-      console.log(data)
       for (var i = 0; i < 25; i++) {
         let li = document.createElement('li');
         let link = document.createElement('a');
@@ -94,7 +92,7 @@ function getNews() {
 
 getNews();
 
-// JQUI Datepicker
+//JQUI Datepicker
 $(function () {
 
   $("#datepicker").datepicker({
@@ -105,23 +103,6 @@ $(function () {
 });
 //On click of the search button on second page, this function will fire to load API Youtube fetch.
 searchButton.addEventListener("click", getVideosSearch2);
-
-
-//local storage
-// var storedSearches = JSON.parse(localStorage.getItem('searches'));
-// if(storedSearches){
-//     searchHistory = storedSearches;
-//     for(var i = 1; i < searchHistory.length; i++) {
-//       var dateSearched = searchHistory[i];
-  
-//       var btnEl = document.createElement('li');
-//       btnEl.textContent = dateSearched;
-  
-//       var searchList = document.getElementById('recent-searches');
-//       searchList.appendChild(btnEl);
-//   }
-// }
-
 
 //comment box
 var userName = document.getElementById('name');
@@ -151,17 +132,16 @@ function saveComment(event) {
 submitBtn.addEventListener('click', saveComment);
 //make function to get the comment display on page
 function printComment() {
+  commentShow.innerHTML = '';
   var commentSave = JSON.parse(localStorage.getItem('userComment')) || [];
   for (var i = 0; i < commentSave.length; i++) {
-    var div = document.createElement('div');
-    div.classList.add('class', 'commentStyle');
+    // var div = document.createElement('div');
     var h4 = document.createElement('h4');
     var p = document.createElement('p');
     h4.textContent = commentSave[i].initials + ' ' + "on" + ' ' + commentSave[i].submitAt;
     p.textContent = commentSave[i].userComInput;
     h4.appendChild(p);
-    div.appendChild(h4);
-    commentShow.appendChild(div)
+    commentShow.appendChild(h4)
   }
 }
 //run function to prevent comment disappear when refesh the page
