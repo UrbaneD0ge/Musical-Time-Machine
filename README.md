@@ -13,7 +13,7 @@ This project will take you back in time, just search for a day and get youtube m
 * Youtube API
 * Inshorts News API
 
-## The page on Desktop
+## Mock-up
 ### Main page
 <img width="1395" alt="main-page-on-desktop" src="https://user-images.githubusercontent.com/89173968/135728428-03d061c8-c073-4b4b-8167-7a74e4c631a1.png">
 
