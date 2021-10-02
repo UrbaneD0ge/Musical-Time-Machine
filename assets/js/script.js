@@ -14,8 +14,13 @@ $(function () {
         qDate = $('#dateSubmit input').val();
         console.log(qDate);
 
-        queryString = './page2.html?q=' + qDate;
-        location.assign(queryString);
+        if(qDate === ""){
+            location.assign("index.html")
+        } else{
+            queryString = './page2.html?q=' + qDate;
+            location.assign(queryString);
+        }
+        
     })
 });
 

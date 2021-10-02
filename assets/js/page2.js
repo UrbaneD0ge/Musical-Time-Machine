@@ -13,7 +13,6 @@ function getVideosSearch() {
 
   //API key
   const YOUTUBE_API_KEY = "AIzaSyCnQnRhLEtt5EzxV8Px3q6LLGqZsxPq3MM";
-  //var searchDate = document.getElementById("dateSubmit").value;
 
   //URL to fetch using API call with parameters.
   const url = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=" + dateValue + "&regionCode=US&safeSearch=moderate&topicId=/m/04rlf&videoSyndicated=true&videoEmbeddable=true&type=video&order=viewCount&key=" + YOUTUBE_API_KEY;
@@ -44,6 +43,9 @@ function getVideosSearch() {
 function getVideosSearch2() {
   const YOUTUBE_API_KEY = "AIzaSyCnQnRhLEtt5EzxV8Px3q6LLGqZsxPq3MM";
   var searchDate2 = document.getElementById("datepicker").value;
+  if (searchDate2 === ""){
+    return false;
+  }
   const url = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=" + searchDate2 + "&regionCode=US&safeSearch=moderate&topicId=/m/04rlf&videoSyndicated=true&videoEmbeddable=true&type=video&order=viewCount&key=" + YOUTUBE_API_KEY;
 
   fetch(url)
@@ -66,7 +68,6 @@ function getVideosSearch2() {
 
     });
 }
-//Call function on load of second page.
 getVideosSearch();
 
 var newsList = document.querySelector('#news-list')
@@ -100,8 +101,6 @@ $(function () {
   });
 
 });
-//On click of the search button on second page, this function will fire to load API Youtube fetch.
-searchButton.addEventListener("click", getVideosSearch2);
 
 //comment box
 var userName = document.getElementById('name');
@@ -146,6 +145,8 @@ function printComment() {
     commentShow.appendChild(h4)
   }
 }
-//run function to prevent comment disappear when refesh the page
+//run function to prevent comment disappear when refresh the page
 printComment();
 
+//On click of the search button on second page, this function will fire to load API Youtube fetch.
+searchButton.addEventListener("click", getVideosSearch2);
