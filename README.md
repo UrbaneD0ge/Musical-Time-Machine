@@ -9,6 +9,7 @@ This project will take you back in time, just search for a day and get Youtube m
 ## Built With 
 * HTML
 * JavaScript
+* JQuery
 * Bootstrap
 * CSS
 * Moment.js
