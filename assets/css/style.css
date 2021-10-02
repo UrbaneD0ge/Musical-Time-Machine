@@ -63,3 +63,13 @@ h1, button {
     50%{background-position:100% 19%}
     100%{background-position:0% 82%}
 }
+
+@media only screen and (max-width: 568px) {
+    #rainbox {
+        width: 100%;
+        max-width: unset;
+    }
+    h1 {
+        font-size: 1.5em;
+    }
+}
