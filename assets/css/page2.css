@@ -58,8 +58,13 @@ p {
   text-align: center;
 }
 
+
 .col-lg-6 {
   height: 100vh;
+
+.middle{
+    height: 100vh;
+
 }
 /*Ability to scroll through videos without scrolling down entire page. Vertically contained.*/
 .overflow {
@@ -179,6 +184,7 @@ h1 a:hover {
   animation: rainbow 10s ease infinite;
   color: black !important;
 }
+/* add style for Comment feature */
 
 #addComBtn:hover {
   background: linear-gradient(
@@ -221,6 +227,16 @@ h4 {
   padding-top: 10px;
   border-bottom: 2px solid grey;
   border-radius: 2px;
+
+#commentDisplay{
+    margin: 5px;
+}
+ 
+#commentDisplay h4 {
+    padding-left: 10px;
+    padding-top: 10px;
+    border-bottom: 2px solid grey;
+    border-radius: 2px;
 }
 
 /* Removes viewport height set earlier to remove extra space on smaller screens */
@@ -228,7 +244,7 @@ h4 {
   .side1 {
     height: auto;
   }
-
+/* Double header-height on small screens to accomodate text wrapping */
   header {
     height: 100px;
   }
