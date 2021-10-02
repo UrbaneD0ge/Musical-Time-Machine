@@ -1,112 +1,77 @@
 /*Universal styling*/
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
-h1,
-button {
-  font-family: "Josefin Sans", sans-serif;
-  font-weight: 100;
+h1, button {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 100;
 }
 
 .ui-datepicker-year {
-  display: none;
-}
+    display: none
+    }
 
 .ui-widget-content {
-  font-family: "Josefin Sans";
-  background-color: dimgray;
+    font-family: "Josefin Sans";
+    background-color: dimgray;
 }
 
 /*Styling for datepicker on first page*/
 #datepicker {
-  font-size: 2vw;
-  text-align: center;
-  margin-bottom: 10px;
-  margin-top: 5px;
-  border-radius: 5px;
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
 }
 /*Just the word "Musical*/
 #musical {
-  font-family: "Courgette", "cursive";
+    font-family: 'Courgette', 'cursive';
 }
 /*Boc around entire form on homepage*/
 #rainbox {
-  margin: 5px;
-  padding: 5px;
-  max-width: 50%;
+    margin: 5px;
+    padding: 5px;
+    max-width: 50%;
 }
 
 #searchBtn {
-  font-weight: 600;
+    font-weight: 600;
 }
 /*Pseudo class for action of hover on button to change colors.*/
 #searchBtn:hover {
-  background: linear-gradient(
-    124deg,
-    #ff2400,
-    #e81d1d,
-    #e8b71d,
-    #e3e81d,
-    #1de840,
-    #1ddde8,
-    #2b1de8,
-    #dd00f3,
-    #dd00f3
-  );
-  background-size: 1800% 1800%;
-  animation: rainbow 10s ease infinite;
+    background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+    background-size: 1800% 1800%;
+    animation: rainbow 10s ease infinite;
 }
 
 .rainbow {
-  background: linear-gradient(
-    124deg,
-    #ff2400,
-    #e81d1d,
-    #e8b71d,
-    #e3e81d,
-    #1de840,
-    #1ddde8,
-    #2b1de8,
-    #dd00f3,
-    #dd00f3
-  );
-  background-size: 1800% 1800%;
-  animation: rainbow 14s ease infinite;
+    background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+    background-size: 1800% 1800%;
+    animation: rainbow 14s ease infinite;
 }
 
 @keyframes rainbow {
-  0% {
-    background-position: 0% 82%;
-  }
-  50% {
-    background-position: 100% 19%;
-  }
-  100% {
-    background-position: 0% 82%;
-  }
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
 }
 
 @-webkit-keyframes rainbow {
-  0% {
-    background-position: 0% 82%;
-  }
-  50% {
-    background-position: 100% 19%;
-  }
-  100% {
-    background-position: 0% 82%;
-  }
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
 }
 
 @media only screen and (max-width: 568px) {
-  #rainbox {
-    width: 100%;
-    max-width: unset;
-  }
-  h1 {
-    font-size: 1.5em;
-  }
+    #rainbox {
+        width: 100%;
+        max-width: unset;
+    }
+    h1 {
+        font-size: 1.5em;
+    }
 }
