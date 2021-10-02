@@ -10,7 +10,7 @@ var searchButton = document.querySelector("#searchBtn")
 
 //API call once user hits search button on homepage.
 function getVideosSearch() {
-  
+
   //API key
   const YOUTUBE_API_KEY = "AIzaSyCnQnRhLEtt5EzxV8Px3q6LLGqZsxPq3MM";
   //var searchDate = document.getElementById("dateSubmit").value;
@@ -80,7 +80,6 @@ function getNews() {
         let li = document.createElement('li');
         let link = document.createElement('a');
         link.setAttribute('href', data.data[i].readMoreUrl);
-        //link.setAttribute('tartget', '_blank')
         li.setAttribute('class', 'bg-secondary rounded list-group-item');
         link.textContent = data.data[i].title;
         li.appendChild(link);
@@ -109,12 +108,12 @@ var userName = document.getElementById('name');
 var commentInput = document.getElementById('commentText');
 var submitBtn = document.getElementById('submitComBtn');
 var commentShow = document.getElementById('commentDisplay');
-
+//save comment in localStorage
 function saveComment(event) {
   event.preventDefault();
   var name = userName.value.trim();
   var comment = commentInput.value.trim();
-  var time = moment().format("MMM Do, YYYY HH:mm:ss");
+  var time = moment().format("MMM Do, YYYY HH:mm");
   if (name !== '' && comment !== '') {
     var commentSave = JSON.parse(localStorage.getItem('userComment')) || [];
     var userComment = {
@@ -132,7 +131,10 @@ function saveComment(event) {
 submitBtn.addEventListener('click', saveComment);
 //make function to get the comment display on page
 function printComment() {
+  //clear the text input and comment will show one comment each time user hit submit
   commentShow.innerHTML = '';
+  userName.value = '';
+  commentInput.value = '';
   var commentSave = JSON.parse(localStorage.getItem('userComment')) || [];
   for (var i = 0; i < commentSave.length; i++) {
     // var div = document.createElement('div');
