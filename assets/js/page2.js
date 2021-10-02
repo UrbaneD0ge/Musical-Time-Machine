@@ -43,7 +43,7 @@ function getVideosSearch() {
 function getVideosSearch2() {
   const YOUTUBE_API_KEY = "AIzaSyCnQnRhLEtt5EzxV8Px3q6LLGqZsxPq3MM";
   var searchDate2 = document.getElementById("datepicker").value;
-  if (searchDate2.value === ""){
+  if (searchDate2 === ""){
     return false;
   }
   const url = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=" + searchDate2 + "&regionCode=US&safeSearch=moderate&topicId=/m/04rlf&videoSyndicated=true&videoEmbeddable=true&type=video&order=viewCount&key=" + YOUTUBE_API_KEY;
@@ -68,18 +68,7 @@ function getVideosSearch2() {
 
     });
 }
-
-function start(){
-  console.log(dateValue)
-  if (dateValue !== ""){
-    getVideosSearch();
-  } else {
-    return false;
-  }
-};
-
-//Call function on load of second page.
-start();
+getVideosSearch();
 
 var newsList = document.querySelector('#news-list')
 function getNews() {
@@ -158,4 +147,4 @@ function printComment() {
 printComment();
 
 //On click of the search button on second page, this function will fire to load API Youtube fetch.
-searchButton.addEventListener("click", start);
+searchButton.addEventListener("click", getVideosSearch2);
