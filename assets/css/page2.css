@@ -53,7 +53,7 @@ h2, h3, h4, button, a, p {
     text-align: center;
 }
 
-.col-lg-6{
+.middle{
     height: 100vh;
 }
 /*Ability to scroll through videos without scrolling down entire page. Vertically contained.*/
@@ -133,6 +133,7 @@ h1 a:hover {
     animation: rainbow 10s ease infinite;
     color: black !important;
 }
+/* add style for Comment feature */
 
 #addComBtn:hover {
     background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
@@ -147,8 +148,10 @@ h1 a:hover {
     animation: rainbow 10s ease infinite;
     color: black !important;
 }
-
-h4 {
+#commentDisplay{
+    margin: 5px;
+}
+#commentDisplay h4 {
     padding-left: 10px;
     padding-top: 10px;
     border-bottom: 2px solid grey;
