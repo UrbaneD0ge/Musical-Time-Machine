@@ -5,7 +5,7 @@ Deployed at https://urbaned0ge.github.io/Musical-Time-Machine/
 Repository Link: https://github.com/UrbaneD0ge/Musical-Time-Machine
 
 ## Welcome to The Musical Time Machine!
-This project will take you back in time, just search for a day and get Youtube music videos released on that day.
+This project will take you back in time, just search for a day and get Youtube videos of music released and entertainment news that occurred on the date of choice. Comment on what you see and store it for the next time you go back in time!
 ## Built With 
 * HTML
 * JavaScript
@@ -46,7 +46,7 @@ Result page
 <img width="252" alt="2page-small-screen" src="https://user-images.githubusercontent.com/89173968/135729498-3ab1fab2-ce31-4712-acf7-709ecaebce39.png">
 
 ## Contributors:
-Team 7 ©2020 All Rights Reserved.
+Team 7 ©2021 All Rights Reserved.
 
 Team 7:
 * Mark Selyuzhitskiy
