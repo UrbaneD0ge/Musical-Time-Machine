@@ -43,7 +43,7 @@ function getVideosSearch() {
 function getVideosSearch2() {
   const YOUTUBE_API_KEY = "AIzaSyCnQnRhLEtt5EzxV8Px3q6LLGqZsxPq3MM";
   var searchDate2 = document.getElementById("datepicker").value;
-  if (searchDate2 === ""){
+  if (searchDate2 === "") {
     return false;
   }
   const url = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=" + searchDate2 + "&regionCode=US&safeSearch=moderate&topicId=/m/04rlf&videoSyndicated=true&videoEmbeddable=true&type=video&order=viewCount&key=" + YOUTUBE_API_KEY;
@@ -107,6 +107,10 @@ var userName = document.getElementById('name');
 var commentInput = document.getElementById('commentText');
 var submitBtn = document.getElementById('submitComBtn');
 var commentShow = document.getElementById('commentDisplay');
+var myModal = new bootstrap.Modal(document.getElementById('myModal'), {
+  keyboard: false
+});
+var closeModal = document.getElementById('closeModal');
 //save comment in localStorage
 function saveComment(event) {
   event.preventDefault();
@@ -123,7 +127,10 @@ function saveComment(event) {
     commentSave.push(userComment);
     window.localStorage.setItem('userComment', JSON.stringify(commentSave))
   } else {
-    alert('You need to put both name and comment to save your comment')
+    myModal.show();
+    closeModal.addEventListener('click', function () {
+      myModal.hide();
+    })
   }
   printComment();
 }
