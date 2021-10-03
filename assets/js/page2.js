@@ -109,7 +109,7 @@ var submitBtn = document.getElementById('submitComBtn');
 var commentShow = document.getElementById('commentDisplay');
 var myModal = new bootstrap.Modal(document.getElementById('myModal'), {
   keyboard: false
-})
+});
 var closeModal = document.getElementById('closeModal');
 //save comment in localStorage
 function saveComment(event) {
